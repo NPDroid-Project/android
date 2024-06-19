@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="npdroid"
+           fetch="ssh://git@github.com"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/14.0" />
+
+  <remote  name="npdroid-gitlab"
+           fetch="https://gitlab.com/"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/14.0" />
+
+  <!-- NPDroid -->
+  <project path="android" name="NPDroid-Project/android" remote="npdroid" />
+  <project path="bootable/recovery" name="NPDroid-Project/android_bootable_recovery" groups="pdk" remote="npdroid" />
+
+  <project path="build/make" name="NPDroid-Project/android_build" groups="pdk,sysui-studio" remote="npdroid" >
+    <linkfile dest="build/CleanSpec.mk" src="CleanSpec.mk" />
+    <linkfile dest="build/buildspec.mk.default" src="buildspec.mk.default" />
+    <linkfile dest="build/core" src="core" />
+    <linkfile dest="build/envsetup.sh" src="envsetup.sh" />
+    <linkfile dest="build/target" src="target" />
+    <linkfile dest="build/tools" src="tools" />
+  </project>
+
+  <project path="build/soong" name="NPDroid-Project/android_build_soong" groups="pdk,tradefed" remote="npdroid" >
+    <linkfile dest="Android.bp" src="root.bp" />
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash" />
+  </project>
+
+  <project path="frameworks/av" name="NPDroid-Project/android_frameworks_av" groups="pdk" remote="npdroid" />
+  <project path="frameworks/base" name="NPDroid-Project/android_frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="npdroid" />
+
+  <project path="packages/apps/Contacts" name="NPDroid-Project/android_packages_apps_Contacts" groups="pdk-fs" remote="npdroid" />
+  <project path="packages/apps/crDroidSettings" name="NPDroid-Project/android_packages_apps_NPDroidSettings" remote="npdroid" />
+  <project path="packages/apps/Dialer" name="NPDroid-Project/android_packages_apps_Dialer" groups="pdk-fs" remote="npdroid" />
+  <project path="packages/apps/Launcher3" name="NPDroid-Project/android_packages_apps_Launcher3" groups="pdk-fs,sysui-studio" remote="npdroid" />
+  <project path="packages/apps/Messaging" name="NPDroid-Project/android_packages_apps_Messaging" groups="pdk-fs" remote="npdroid" />
+  <project path="packages/apps/Settings" name="NPDroid-Project/android_packages_apps_Settings" groups="pdk-fs" remote="npdroid" />
+  <project path="packages/apps/SetupWizard" name="NPDroid-Project/android_packages_apps_SetupWizard" remote="npdroid" />
+  <project path="packages/apps/Updater" name="NPDroid-Project/android_packages_apps_Updater" remote="npdroid" />
+
+  <project path="vendor/addons" name="NPDroid-Project/android_vendor_addons" remote="npdroid" />
+  <project path="vendor/NPDroidOTA" name="NPDroid-Project/android_vendor_NPDroidOTA" remote="npdroid" />
+  <project path="vendor/lineage" name="NPDroid-Project/android_vendor_npdroid" remote="npdroid" />
+</manifest>
